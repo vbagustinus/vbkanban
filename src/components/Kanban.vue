@@ -16,7 +16,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="thumbnail" >
-                <h1 style="background-color:red;">task</h1>
+                <h1 style="background-color:red;">Back Log</h1>
 
                 <div class="thumbnail" v-for="task in showtasks" v-if="task.status == 0">
                   <div class="caption">
@@ -30,8 +30,6 @@
                     </div>
                   </div>
                   <!-- modal DETAIl -->
-
-
                 </div>
 
               </div>
@@ -110,32 +108,31 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Kanban</h4>
+            <h4 class="modal-title">Input Task</h4>
           </div>
           <div class="modal-body">
             <form>
               <div class="form-group">
                 <label for="Title" style="text-align='left'">Title:</label>
-                <input v-model="addTasks.title" type="text" class="form-control" id="title">
+                <input v-model="inputTask.title" type="text" class="form-control" id="title">
               </div>
               <div class="form-group">
                 <label for="Description">Description:</label>
-                <textarea v-model="addTasks.description" class="form-control" rows="5" id="description"></textarea>
+                <textarea v-model="inputTask.description" class="form-control" rows="5" id="description"></textarea>
               </div>
               <div class="form-group">
                 <label for="Point">Point:</label>
-                <input v-model="addTasks.point" type="text" class="form-control" id="point">
+                <input v-model="inputTask.point" type="text" class="form-control" id="point">
               </div>
               <div class="form-group">
                 <label for="AssignTo">Assign To:</label>
-                <input v-model="addTasks.assignTo" type="text" class="form-control" id="assign">
+                <input v-model="inputTask.assignTo" type="text" class="form-control" id="assign">
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button @click="addTask" type="button" class="btn btn-default" data-dismiss="modal">Add Task</button>
+            <button @click="inputTask" type="button" class="btn btn-default" data-dismiss="modal">Add Task</button>
           </div>
         </div>
 
@@ -203,11 +200,17 @@ export default {
         point: null,
         assignedTo: null,
         status: 0
-      }
+      },
+      currentTask: null
     }
   },
   firebase: {
     showtasks: db
+  },
+  methods: {
+    showDetail () {
+      console.log('SHOW')
+    }
   }
 }
 </script>
