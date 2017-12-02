@@ -5,6 +5,7 @@ import Kanban from '@/components/Kanban'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
