@@ -4,10 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueFire from 'vuefire'
-import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+import Buefy from 'buefy'
+import 'buefy/lib/buefy.css'
 
-Vue.use(iView)
+Vue.use(Buefy)
 Vue.use(VueFire)
 Vue.config.productionTip = false
 
